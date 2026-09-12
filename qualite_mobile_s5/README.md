@@ -210,6 +210,56 @@ Voici au moins trois pratiques pertinentes :
 4. garder le projet propre, bien organisé et maintenable afin de limiter la complexité et faciliter la correction des erreurs
 5. utiliser des données légères, éviter les fichiers volumineux et éviter les images trop lourdes
 
+## Fichiers de test créés et leur rôle
+
+Le projet contient plusieurs fichiers de test pour vérifier différents niveaux de validation.
+
+### 1. `test/moyenne_test.dart`
+
+Ce fichier contient les tests unitaires. Il vérifie la logique isolée de calcul de moyenne, sans dépendre de l’interface.
+
+Il sert à tester :
+
+- un cas simple : moyenne de deux notes
+- un cas plus varié : moyenne sur plusieurs étudiants
+
+L’objectif est de valider la logique métier de manière fiable et rapide.
+
+### 2. `test/widget_app_test.dart`
+
+Ce fichier contient un test de widget. Il vérifie que l’interface affiche bien les éléments attendus :
+
+- titre de l’application
+- sous-titre de la page
+- noms des étudiants dans la liste
+- apparition de la boîte de dialogue après clic sur le bouton
+
+Il permet de valider le comportement visuel et l’interaction avec les composants Flutter.Similaire au widget_test.dart
+
+### 3. `test/integration_app_test.dart`
+
+Ce fichier contient un test d’intégration. Il simule un scénario utilisateur complet :
+
+- lancement de l’application
+- ouverture de la liste
+- clic sur un étudiant
+- navigation vers la page de détails
+- retour à la page principale
+- clic sur le bouton de calcul de moyenne
+- vérification de la fenêtre de dialogue
+
+L’objectif est de valider la continuité entre les écrans et la cohérence du comportement global de l’application.
+
+### 4. Pourquoi plusieurs types de tests ?
+
+Chaque type de test a un rôle précis :
+
+- les tests unitaires valident la logique pure
+- les tests de widgets vérifient l’affichage et les interactions UI
+- les tests d’intégration vérifient le parcours utilisateur complet
+
+Cela permet d’avoir un projet plus fiable, plus robuste et plus facile à maintenir.
+
 ### 6. Conclusion sur la sobriété
 
 Même une application simple peut être pensée de manière plus responsable. Un logiciel sobre est un logiciel plus lisible, plus performant, plus facile à maintenir et moins énergivore. Cela contribue à une meilleure qualité logicielle, à la fois technique et environnementale.
